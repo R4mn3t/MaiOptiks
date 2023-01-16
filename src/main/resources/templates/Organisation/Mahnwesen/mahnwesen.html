@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${title}"></title>
+  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+  <link rel="stylesheet" th:href="@{/css/mahnwesen-style.css}">
+</head>
+<body>
+  <div class="title-bar">
+    <h1 class="heading">Mahnwesen</h1>
+  </div>
+  <div class="vertical-bar"></div>
+
+  <div class="header">
+    <button class="button button-startseite" onclick="openLink('/')">Startseite</button>
+    <hr class="linetop">
+  </div>
+
+  <div class="main">
+    <div class="mahnwindow">
+      <div class="mahnheader">
+        <h3>Bitte geben Sie eine Auftragsnummer an</h3>
+
+        <div class="container-art">
+          <button onclick="changeMahnung(-1)">Zurück</button>
+          <p>Beispielmahnung</p>
+          <button onclick="changeMahnung(1)">Weiter</button>
+        </div>
+
+        <div class="container-kunde">
+          <div class="auftrag">
+            <p>Auftragsnummer:</p>
+            <input class="auftragsnr" id="auftragsnr" type="text" placeholder="Auftragsnr">
+            <button onclick="getKundeByAuftragsNr()">Suchen</button>
+          </div>
+          <div class="kunde">
+            <label>Auftragsnummer:</label>
+            <p id="auftragsnummer"></p>
+            <label>Kundennummer:</label>
+            <p id="kundennummer"></p>
+            <label>Kundenname:</label>
+            <p id="kundenname"></p>
+          </div>
+        </div>
+      </div>
+      <div class="mahntext">
+        <textarea id="textarea"></textarea>
+      </div>
+      <div class="mahnfooter">
+        <button onclick="sendMahnung()">Absenden</button>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" th:src="@{/scripts/mahnwesen.js}"></script>
+  <script type="text/javascript" th:src="@{/scripts/main.js}"></script>
+</body>
+</html>
