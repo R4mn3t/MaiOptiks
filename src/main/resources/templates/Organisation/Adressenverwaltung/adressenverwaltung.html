@@ -19,8 +19,8 @@
 </div>
 
 <div class="tab-buttons">
-    <input class="" onclick="set_tab(1)" type="button" value="Mitarbeiter"/>
-    <input class="" onclick="set_tab(2)" type="button" value="Ärzte"/>
+    <input class="" onclick="set_tab(1)" type="button" value="Mitarbeiter" style="font-weight: bold"/>
+    <input class="" onclick="set_tab(2)" type="button" value="Ärzte" style="font-weight: bold"/>
 </div>
 
 <div class="tab-body">
@@ -42,9 +42,14 @@
 </div>
 <div class="direction-buttons">
 
-	<button class="button direction-button" onclick="openLink('./')">Startseite</button>
-	<button class="button direction-button" onclick="openLink('/organisation')">Zurück</button>
-	<button class="button direction-button" onclick="openLink('/mitarbeiter')">Mitarbeiter</button>
+    <button class="button direction-button" onclick="openLink('./')">Startseite</button>
+    <button class="button direction-button" onclick="openLink('/organisation')">Zurück</button>
+    <button
+            class="button direction-button"
+            id="addressButton"
+            onclick="openLink('/mitarbeiter')">
+        Mitarbeiter bearbeiten
+    </button>
 
 </div>
 </body>
@@ -60,6 +65,19 @@
             if (tab.id !== 'tab-' + tab_id)
                 tab.classList.add('hidden')
         }
+debugger;
+        changeAddressButton(tab_id);
+    }
+
+    function changeAddressButton(tab_id) {
+        const addressButton = document.getElementById('addressButton');
+        const addressButtonValue = document.getElementById('addressButton').innerText;
+
+        if (addressButtonValue === 'Mitarbeiter bearbeiten' && tab_id === 2)
+            addressButton.innerText = 'Ärzte bearbeiten';
+
+        if (addressButtonValue === 'Ärzte bearbeiten' && tab_id === 1)
+            addressButton.innerText = 'Mitarbeiter bearbeiten';
     }
 
     function searchEmployee() {

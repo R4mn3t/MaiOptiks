@@ -2,7 +2,7 @@
 <html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
 <body>
 <th:block th:fragment="aerzte">
-    <h3> Ärzte</h3>
+    <h3>Ärzte</h3>
     <div class="customerButton-searchField">
         <div class="search-fields">
             <input class="input" id="lastname" placeholder="Name" type="text"></input><br>
@@ -12,8 +12,6 @@
     </div>
 
     <div class="table-container" id="arztTable"></div>
-</th:block>
-</body>
 <script>
     function searchArzt() {
         let name = document.getElementById('name').value;
@@ -39,7 +37,7 @@
             '/api/arzts',
             key,
             (data) => {   // func
-                createTable(data, tableContainer, (data2) => {
+                createTable(data, tableContainer, (data) => {
                     set_tab(4);
                 });
             });
