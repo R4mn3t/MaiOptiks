@@ -1,0 +1,90 @@
+body {
+    height: 100vh;
+}
+
+.header {
+    width: 96%;
+    text-align: left;
+    font-size: 25px;
+}
+.header .button-startseite {
+    width: 10em;
+    height: 2.5em;
+    margin: 0.5%;
+}
+
+.main {
+    height: 70%;
+    width: 70%;
+    margin: 2em auto 5.3em auto;
+}
+
+.mahnwindow {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    justify-content: center;
+}
+
+.mahnheader {
+    border-radius: 3px;
+    text-align: center;
+    flex: 0.5;
+}
+
+.mahntext {
+    text-align: center;
+    flex: 1;
+}
+
+.mahnfooter {
+    flex: 0.15;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.container-art {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.container-art > button {
+    height: 2em;
+    width: 6em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.auftrag {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+}
+
+.kunde {
+    display: flex;
+    justify-content: left;
+    gap: 5px;
+    align-items: center;
+}
+
+.kunde > p {
+    margin: 0;
+}
+
+.mahntext > textarea {
+    resize: none;
+    width: 100%;
+    height: 90%;
+}
+
+.mahnfooter button {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 2em;
+    width: 12em;
+}
