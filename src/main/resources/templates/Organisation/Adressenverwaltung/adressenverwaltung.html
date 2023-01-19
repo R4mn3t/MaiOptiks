@@ -19,8 +19,9 @@
 </div>
 
 <div class="tab-buttons">
-    <input class="" onclick="set_tab(1)" type="button" value="Mitarbeiter" style="font-weight: bold"/>
-    <input class="" onclick="set_tab(2)" type="button" value="Ärzte" style="font-weight: bold"/>
+    <input onclick="set_tab(1)" style="font-weight: bold" type="button" value="Mitarbeiter"/>
+    <input onclick="set_tab(2)" style="font-weight: bold" type="button" value="Ärzte"/>
+    <input type="hidden" id="cache"/>
 </div>
 
 <div class="tab-body">
@@ -37,18 +38,25 @@
     </div>
 
     <div class="tab" id="tab-4">
-        <div th:replace="fragments/Adressenverwaltung/aerzte-bearbeiten.html"></div>
+        <div th:replace="fragments/Adressenverwaltung/arzt-bearbeiten.html"></div>
     </div>
 </div>
 <div class="direction-buttons">
 
-    <button class="button direction-button" onclick="openLink('./')">Startseite</button>
-    <button class="button direction-button" onclick="openLink('/organisation')">Zurück</button>
+    <button class="button direction-button" onclick="openLink('./')">
+        <span class="material-symbols-outlined">home</span>
+        Startseite
+    </button>
+    <button class="button direction-button" onclick="openLink('/organisation')">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Zurück
+    </button>
     <button
             class="button direction-button"
             id="addressButton"
-            onclick="openLink('/mitarbeiter')">
-        Mitarbeiter bearbeiten
+            onclick="changeAddressButtonLink()">
+        <span class="material-symbols-outlined">person_add</span>
+        Hinzufügen
     </button>
 
 </div>
@@ -56,6 +64,7 @@
 <script>
     function set_tab(tab_id) {
         let tabs = document.getElementsByClassName('tab');
+        let cache = document.getElementById('cache');
 
         for (let i = 0; i < tabs.length; i++) {
             let tab = tabs.item(i);
@@ -65,19 +74,18 @@
             if (tab.id !== 'tab-' + tab_id)
                 tab.classList.add('hidden')
         }
-debugger;
-        changeAddressButton(tab_id);
+
+        cache.innerText = tab_id;
     }
 
-    function changeAddressButton(tab_id) {
-        const addressButton = document.getElementById('addressButton');
-        const addressButtonValue = document.getElementById('addressButton').innerText;
+    function changeAddressButtonLink() {
+        const cache = document.getElementById('cache');
 
-        if (addressButtonValue === 'Mitarbeiter bearbeiten' && tab_id === 2)
-            addressButton.innerText = 'Ärzte bearbeiten';
-
-        if (addressButtonValue === 'Ärzte bearbeiten' && tab_id === 1)
-            addressButton.innerText = 'Mitarbeiter bearbeiten';
+        if (cache.innerText === '1') {
+            openLink('/mitarbeiter');
+        } else {
+            openLink('/arzt');
+        }
     }
 
     function searchEmployee() {
