@@ -58,7 +58,7 @@
 
     <div class="body">
         <div class="tab-buttons" id="tab-buttons">
-            <input class="type-br type-cl tab-button" onclick="set_tab(1)" type="button" value="Daten"/>
+            <input class="type-br type-cl tab-button" id="daten" onclick="set_tab(1)" type="button" value="Daten"/>
             <input class="type-cl tab-button" onclick="set_tab(2);" type="button" value="Hornhaut"/>
             <input class="type-br tab-button" onclick="set_tab(4);" type="button" value="Brillenfassung"/>
             <input class="type-br type-cl tab-button" onclick="set_tab(6);" type="button" value="Refraktion"/>
@@ -110,6 +110,7 @@
     set_tab(1);
     load('exit-logic-1', 'auftragsnr');
 
+    document.getElementById('daten').click();
     set_tabs_visibility(document.getElementById('selection-artikelart'));
 </script>
 </html>

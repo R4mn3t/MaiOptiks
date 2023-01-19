@@ -39,6 +39,15 @@ h2 {
 }
 
 /*Buttons*/
+.tab-button:hover {
+    background-color: var(--buttonHover);
+    border: 1px solid black;
+}
+.tab-button:focus {
+    background-color: var(--buttonHover);
+    border: 1px solid black;
+}
+
 .submit-button {
     height: 2em;
     width: 100%;
