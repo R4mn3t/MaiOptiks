@@ -39,6 +39,24 @@ h2 {
 }
 
 /*Buttons*/
+.tab-button {
+    font-weight: bold;
+    font-size: 1.5em;
+    cursor: pointer;
+
+
+}
+
+.tab-button:hover {
+    background-color: var(--buttonHover);
+    border: 1px solid black;
+}
+
+.tab-button:focus {
+    background-color: var(--buttonHover);
+    border: 1px solid black;
+}
+
 .submit-button {
     height: 2em;
     width: 100%;
@@ -97,14 +115,14 @@ h2 {
 }
 
 .tab-buttons {
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
     justify-content: space-evenly;
 }
 
-.tab-buttons input[type="button"]{
+.tab-buttons input[type="button"] {
     flex: 1 1 auto;
     height: 3rem;
 }

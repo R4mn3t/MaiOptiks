@@ -9,7 +9,7 @@
     <script th:src="@{/scripts/main.js}" type="text/javascript"></script>
     <script th:src="@{/scripts/table.js}" type="text/javascript"></script>
 </head>
-<body>
+<body onload="onLoad()">
 <div class="title-bar">
     <h1 class="heading">Adressenverwaltung</h1>
 </div>
@@ -19,9 +19,9 @@
 </div>
 
 <div class="tab-buttons">
-    <input onclick="set_tab(1)" style="font-weight: bold; font-size: 3em;" type="button" value="Mitarbeiter"/>
-    <input onclick="set_tab(2)" style="font-weight: bold; font-size: 3em;" type="button" value="Ärzte"/>
-    <input type="hidden" id="cache"/>
+    <input id="mitarbeiter" class="tab-button" onclick="set_tab(1)" type="button" value="Mitarbeiter"/>
+    <input class="tab-button" onclick="set_tab(2)" type="button" value="Ärzte"/>
+    <input id="cache" type="hidden"/>
 </div>
 
 <div class="tab-body">
@@ -62,6 +62,11 @@
 </div>
 </body>
 <script>
+    function onLoad() {
+        document.getElementById('mitarbeiter').style.backgroundColor = '#bdbdbd';
+        document.getElementById('mitarbeiter').style.border = '1px solid black';
+    }
+
     function set_tab(tab_id) {
         let tabs = document.getElementsByClassName('tab');
         let cache = document.getElementById('cache');
@@ -73,6 +78,12 @@
 
             if (tab.id !== 'tab-' + tab_id)
                 tab.classList.add('hidden')
+        }
+
+        if (tab_id !== 1) {
+            document.getElementById('mitarbeiter').style.backgroundColor = '#e1e1e1';
+        } else {
+            document.getElementById('mitarbeiter').style.backgroundColor = '#bdbdbd';
         }
 
         cache.innerText = tab_id;
