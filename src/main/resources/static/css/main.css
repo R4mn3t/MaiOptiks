@@ -7,6 +7,7 @@
     --light: #5ca9ff;
     --dark: #004f9b;
     --button: #e1e1e1;
+    --buttonDisabled: #d1d1d1;
     --buttonHover: #bdbdbd;
 }
 
@@ -121,4 +122,12 @@ th {
     background-color: var(--primary);
     color: white;
     padding: 5px;
+}
+
+button:disabled {
+    background-color: var(--buttonDisabled);
+}
+
+button:disabled:hover {
+    background-color: var(--buttonDisabled);
 }
