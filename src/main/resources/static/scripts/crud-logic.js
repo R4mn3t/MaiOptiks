@@ -16,6 +16,7 @@ function set_form_mode(mode, action_button_id, key_field_id) {
             actionButton.value = 'Öffnen';
             actionButton.setAttribute('onclick'
                 ,'search()');
+            actionButton.innerHTML = '<span class="material-symbols-outlined">search</span>';
             document.getElementById(key_field_id).value = '';
             break;
         case 'u': // update

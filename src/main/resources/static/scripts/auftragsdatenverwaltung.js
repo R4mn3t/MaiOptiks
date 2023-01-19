@@ -275,7 +275,7 @@ function isSearch() {
 }
 
 function noSearchData() {
-    alert('Es wurde nichts gefunden');
+    alert('Es wurde keine passenden Aufträge gefunden');
     set_form_mode('s', 'exit-logic-1', 'auftragsnr');
 }
 
