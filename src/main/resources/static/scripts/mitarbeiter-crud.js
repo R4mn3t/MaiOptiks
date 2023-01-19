@@ -53,7 +53,14 @@ function search() {
     // Get all data from none locked files (<input disabled>)
     // Perform search
     // Set data id to id field
-    let key = document.getElementById('mitarbeiternr').value;
+    let cache = document.getElementById('cache')
+    let key = '';
+
+    if (cache === '1') {
+        key = document.getElementById('mitarbeiternr').value;
+    } else if (cache === '2') {
+        key = document.getElementById('arztid').value;
+    }
 
     doGetRequest('/api/mitarbeiters/', key, (data) => {
         document.getElementById('mitarbeiternr').value = data['mitarbeiterNr'];
