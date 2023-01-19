@@ -2,44 +2,47 @@
 <html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
 <body>
 <th:block th:fragment="mitarbeiter">
-	<h3>Mitarbeiter</h3>
-	<div class="search-fields">
-		<input class="input" id="lastname" placeholder="Name" type="text"></input><br>
-		<input class="input" id="name" placeholder="Vorname" type="text"></input><br>
-		<button class="button submit-button" onclick="searchEmployee()">Suchen</button>
-	</div>
+    <h2>Mitarbeiter</h2>
+    <div class="search-fields">
+        <input class="input" id="lastname" placeholder="Name" type="text"></input><br>
+        <input class="input" id="name" placeholder="Vorname" type="text"></input><br>
+        <button class="button submit-button" onclick="searchEmployee()">
+            <span class="material-symbols-outlined">search</span>
+            Suchen
+        </button>
+    </div>
 
-	<div class="table-container" id="employeeTable"></div>
+    <div class="table-container" id="employeeTable"></div>
 
 </th:block>
 </body>
 <script>
-	function searchEmployee() {
-		let name = document.getElementById('name').value;
-		let lastname = document.getElementById('lastname').value;
-		let tableContainer = 'employeeTable';
+    function searchEmployee() {
+        let name = document.getElementById('name').value;
+        let lastname = document.getElementById('lastname').value;
+        let tableContainer = 'employeeTable';
 
-		switch (true) {
-			case (lastname === '' && name === ''):
-				lastname = '*';
-				name = '*';
-				break;
-			case (lastname === '' && name !== ''):
-				lastname = '*';
-				break;
-			case (lastname !== '' && name === ''):
-				name = '*';
-				break;
-		}
+        switch (true) {
+            case (lastname === '' && name === ''):
+                lastname = '*';
+                name = '*';
+                break;
+            case (lastname === '' && name !== ''):
+                lastname = '*';
+                break;
+            case (lastname !== '' && name === ''):
+                name = '*';
+                break;
+        }
 
-		let key = `?name=${lastname}&vorname=${name}`;
+        let key = `?name=${lastname}&vorname=${name}`;
 
-		doGetRequest(
-			'/api/mitarbeiters',
-			key,
-			(data) => {   // func
-				createTable(data, tableContainer, 'mitarbeiter-bearbeiten');
-			});
-	}
+        doGetRequest(
+            '/api/mitarbeiters/getAll',
+            key,
+            (data) => {   // func
+                createTable(data, tableContainer, 'mitarbeiter-bearbeiten');
+            });
+    }
 </script>
 </html>
